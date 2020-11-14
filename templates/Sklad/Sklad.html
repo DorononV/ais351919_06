@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link type="text/css" href="{{ url_for('static', filename='css/styles.css')}}" rel="stylesheet" />
+<title>{{ title }}</title>
+</head>
+<body>
+  <ul class="mainmenu">
+    {% for m in menu %}
+    <li><a href="{{m.url}}">{{m.name}}</a></li>
+    {% endfor %}
+  </ul>
+  <h1>{{ title }}</h1>
+  <table border="1">
+    <thead align="center">
+                <td>ID склада</td>
+                <td>Адрес склада, улица</td>
+                <td>Адрес склада, номер дома</td>
+                <td>Количество метров занимаемой площади</td>
+    </thead>
+            {% for sklad in sklads %}
+            <tr align="center">
+                <td>{{ sklad.number }}</td>
+                <td>{{ sklad.ylica }}</td>
+                <td>{{ sklad.num_home }}</td>
+                <td>{{ sklad.ploshad }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+  <div class="clear"></div>
+  <div class="content"></div>
+
+</body>
+</html>

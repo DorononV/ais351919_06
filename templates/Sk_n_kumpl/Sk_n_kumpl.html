@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link type="text/css" href="{{ url_for('static', filename='css/styles.css')}}" rel="stylesheet" />
+<title>{{ title }}</title>
+</head>
+<body>
+  <ul class="mainmenu">
+    {% for m in menu %}
+    <li><a href="{{m.url}}">{{m.name}}</a></li>
+    {% endfor %}
+  </ul>
+  <h1>{{ title }}</h1>
+  <table border="1">
+    <thead align="center">
+                <td>ID склада</td>
+                <td>ID комплектующей</td>
+    </thead>
+            {% for sklad_and_kompl in sklad_and_kompls %}
+            <tr align="center">
+                <td>{{ sklad_and_kompl.number }}</td>
+                <td>{{ sklad_and_kompl.kompl }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+  <div class="clear"></div>
+  <div class="content"></div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link type="text/css" href="{{ url_for('static', filename='css/styles.css')}}" rel="stylesheet" />
+<title>{{ title }}</title>
+</head>
+<body>
+  <ul class="mainmenu">
+    {% for m in menu %}
+    <li><a href="{{m.url}}">{{m.name}}</a></li>
+    {% endfor %}
+  </ul>
+  <h1>{{ title }}</h1>
+  <table border="1">
+    <thead align="center">
+                <td>ID станка</td>
+                <td>ID комплектующей</td>
+    </thead>
+            {% for kompl_n_st in kompl_n_sts %}
+            <tr align="center">
+                <td>{{ kompl_n_st.number }}</td>
+                <td>{{ kompl_n_st.kompl }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+  <div class="clear"></div>
+  <div class="content"></div>
+
+</body>
+</html>

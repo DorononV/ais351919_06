@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link type="text/css" href="{{ url_for('static', filename='css/styles.css')}}" rel="stylesheet" />
+<title>{{ title }}</title>
+</head>
+<body>
+  <ul class="mainmenu">
+    {% for m in menu %}
+    <li><a href="{{m.url}}">{{m.name}}</a></li>
+    {% endfor %}
+  </ul>
+  <h1>{{ title }}</h1>
+  {% for msg in get_flashed_messages() %}
+  <div class="flash">{{msg}}</div>
+  {% endfor %}
+  <p>Введите ID_Станка, информацию о котором хотите обновить, а также заполните поля, которые необходимо обновить.
+  <form action="/put_stanok" method="post" class="form-contact">
+  <p><label>ID_Станка:</label> <input type="text" name="number" value="" requied />
+  <p><label>Модель станка: </label> <input type="text" name="model_st" value="" requied />
+  <p><label>Тип станка: </label> <input type="text" name="type_st" value="" requied />
+  <p><label>Пользователь: </label> <input type="text" name="user" value="" requied />
+  <p><label>Эксплуатация: </label> <input type="text" name="expl" value="" requied />
+  <p><input type="submit" value="Отправить" />
+  </form>
+  <div class="clear"></div>
+  <div class="content"></div>
+
+</body>
+</html>

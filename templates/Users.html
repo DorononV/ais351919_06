@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link type="text/css" href="{{ url_for('static', filename='css/styles.css')}}" rel="stylesheet" />
+<title>{{ title }}</title>
+</head>
+<body>
+  <ul class="mainmenu">
+    {% for m in menu %}
+    <li><a href="{{m.url}}">{{m.name}}</a></li>
+    {% endfor %}
+  </ul>
+  <h1>{{ title }}</h1>
+  <table border="1">
+    <thead align="center">
+                <td>ID пользователя</td>
+                <td>Имя</td>
+                <td>Фамилия</td>
+                <td>Отчество</td>
+                <td>Дата рождения</td>
+    </thead>
+            {% for user in users %}
+            <tr align="center">
+                <td>{{ user.number }}</td>
+                <td>{{ user.firstname }}</td>
+                <td>{{ user.lastname }}</td>
+                <td>{{ user.midname }}</td>
+                <td>{{ user.birthday }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+  <div class="clear"></div>
+  <div class="content"></div>
+
+</body>
+</html>

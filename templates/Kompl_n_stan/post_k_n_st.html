@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link type="text/css" href="{{ url_for('static', filename='css/styles.css')}}" rel="stylesheet" />
+<title>{{ title }}</title>
+</head>
+<body>
+  <ul class="mainmenu">
+    {% for m in menu %}
+    <li><a href="{{m.url}}">{{m.name}}</a></li>
+    {% endfor %}
+  </ul>
+  <h1>{{ title }}</h1>
+  {% for msg in get_flashed_messages() %}
+  <div class="flash">{{msg}}</div>
+  {% endfor %}
+  <form action="/post_komplnst" method="post" class="form-contact">
+  <p><label>Введите ID комплектующей:</label> <input type="text" name="number" value="" requied />
+  <p><label>Введите ID станка: </label> <input type="text" name="kompl" value="" requied />
+  <p><input type="submit" value="Отправить" />
+  </form>
+  <div class="clear"></div>
+  <div class="content"></div>
+</body>
+</html>

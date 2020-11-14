@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link type="text/css" href="{{ url_for('static', filename='css/styles.css')}}" rel="stylesheet" />
+<title>{{ title }}</title>
+</head>
+<body>
+  <ul class="mainmenu">
+    {% for m in menu %}
+    <li><a href="{{m.url}}">{{m.name}}</a></li>
+    {% endfor %}
+  </ul>
+  <h1>{{ title }}</h1>
+  <table border="1">
+    <thead align="center">
+                <td>ID_Эксплуатация</td>
+                <td>Дата начала работы станка</td>
+                <td>Эксплуатационный срок</td>
+                <td>Дата списания станка</td>
+    </thead>
+            {% for expl in expls %}
+            <tr align="center">
+                <td>{{ expl.number }}</td>
+                <td>{{ expl.date_start }}</td>
+                <td>{{ expl.expl_srok }}</td>
+                <td>{{ expl.date_spis }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+  <div class="clear"></div>
+  <div class="content"></div>
+
+</body>
+</html>
